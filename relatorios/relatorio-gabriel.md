@@ -1,128 +1,100 @@
 # Relatório do Projeto Integrador - POO
+**Autor:** Gabriel Simonetti Marconato  
+**RA:** 1960685  
+**Turma:** A
 
-## 1ª) Classes e suas funções
+## 1ª) Classes e Suas Funções
 
 ### SmartFishApplication.java
-- **Classe:** SmartfishApplication.
-- **Função:** Esta é a classe principal responsável por iniciar a aplicação Spring Boot.
+**Classe:** SmartfishApplication  
+**Resposta:** Esta é a classe principal, responsável por iniciar a aplicação Spring Boot. Ela recebe a anotação `@SpringBootApplication`, que inicia uma aplicação Spring Boot, fazendo com que a `SmartfishApplication` inicie a aplicação.
 
 ### FirebaseConfig.java
-- **Classe:** FirebaseConfig.
-- **Função:** Esta classe tem a função de inicializar o Firebase, autenticando a aplicação usando o arquivo `serviceAccountKey.json`.
+**Classe:** FirebaseConfig  
+**Resposta:** Esta classe tem a função de inicializar o Firebase para autenticar a aplicação, usando o arquivo `serviceAccountKey.json`.
 
 ### RabbitMQConstant.java
-- **Classe:** RabbitMQConstant.
-- **Função:** Esta classe de configuração Spring Boot gerencia filas de mensagens com o RabbitMQ, permitindo a comunicação com outros componentes da aplicação ou sistemas externos.
+**Classe:** RabbitMQConstant  
+**Resposta:** Esta classe de configuração Spring Boot é responsável por gerenciar filas de mensagens com o RabbitMQ, tornando possível a comunicação com outros componentes de suas aplicações ou sistemas externos.
 
 ### ComponentConsumer.java
-- **Classe:** ComponentConsumer.
-- **Função:** Esta classe atua como um consumidor de mensagens na fila `StatusQueue` do RabbitMQ e cria componentes na aplicação.
+**Classe:** ComponentConsumer  
+**Resposta:** Esta é uma classe de consumidor que realiza a função de consumir mensagens na fila `StatusQueue` no RabbitMQ e criar os componentes na sua aplicação.
 
 ### SensorConsumer.java
-- **Classe:** SensorConsumer.
-- **Função:** A classe SensorConsumer consome mensagens na fila `RegistryQueue` do RabbitMQ e registra sensores na aplicação.
+**Classe:** SensorConsumer  
+**Resposta:** A classe `SensorConsumer` tem a função de consumir mensagens na fila `RegistryQueue` no RabbitMQ e registrar sensores na aplicação.
 
 ### ComponentController.java
-- **Classe:** ComponentController.
-- **Função:** Este é um controlador REST que lida com requisições HTTP relacionadas a componentes na aplicação.
+**Classe:** ComponentController  
+**Resposta:** Esta é um controlador REST que lida com requisições HTTP. Na aplicação, ela controla os componentes.
 
 ### SensorController.java
-- **Classe:** SensorController.
-- **Função:** Este é um controlador REST que lida com requisições HTTP relacionadas a sensores na aplicação.
+**Classe:** SensorController  
+**Resposta:** Esta é um controlador REST que lida com requisições HTTP. Na aplicação, ela controla os sensores.
 
 ### Response.java
-- **Classe:** Response.
-- **Função:** Esta classe é usada para enviar respostas para o usuário quando ele faz uma requisição HTTP no servidor.
+**Classe:** Response  
+**Resposta:** Esta é uma classe de transferência de dados usada pelo servidor para enviar respostas para o usuário quando ele faz uma requisição HTTP.
 
 ### ComponentDto.java
-- **Classe:** ComponentDto.
-- **Função:** Esta classe de transferência de dados armazena informações de componentes e envia-as ao usuário quando ele faz uma requisição HTTP.
+**Classe:** ComponentDto  
+**Resposta:** Esta é uma classe de transferência de dados capaz de armazenar informações de um componente e enviá-las ao usuário quando ele faz uma requisição HTTP. O servidor recebe o objeto `ComponentDto` como entrada e então manipula o componente.
 
 ### SensorDto.java
-- **Classe:** SensorDto.
-- **Função:** Esta classe é usada para controlar registros de sensores, permitindo ao servidor receber e manipular informações de sensores em formato de objetos.
+**Classe:** SensorDto  
+**Resposta:** Ela é usada pelo servidor para controlar registros de sensores. O servidor recebe os objetos `SensorDto` como entrada e utiliza-os para manipular os registros dos sensores.
 
 ### ComponentService.java
-- **Classe:** ComponentService.
-- **Função:** Esta classe de serviço é responsável por criar, ler e excluir componentes. Ela utiliza o Firebase para armazenar os dados dos componentes e o RabbitMQ para ativar componentes por meio de mensagens.
+**Classe:** ComponentService  
+**Resposta:** Esta é uma classe de serviço com a função de criar, ler e excluir componentes. Ela usa o Firestore para armazenar os dados dos componentes e o RabbitMQ para ativá-los através de mensagens.
 
 ### SensorService.java
-- **Classe:** SensorService.
-- **Função:** Esta classe é utilizada pelo servidor de aplicação para gerenciar a parte lógica dos registros de sensores.
+**Classe:** SensorService  
+**Resposta:** É utilizado pelo servidor de aplicação para gerenciar a parte lógica dos registros de sensores.
 
-## 2ª) Codificou atributos
+## 2ª) Codificou Atributos
 
-### FirebaseConfig.java
-- **Atributo:** `private AmqpAdmin amqpAdmin`.
-- **Função:** Este atributo é utilizado para administrar objetos do RabbitMQ.
-
-### RabbitMQConfig.java
-- **Atributo:** `private static final String EXCHANGE_NAME`.
-- **Função:** Este atributo é uma constante que representa o nome da troca no RabbitMQ.
-
-### ComponentConsumer.java
-- **Atributo:** `private ComponentService componentService`.
-- **Função:** Este atributo é usado para processar mensagens relacionadas a componentes.
-
-### SensorConsumer.java
-- **Atributo:** `private SensorService sensorService`.
-- **Função:** Este atributo é usado para processar mensagens relacionadas a sensores.
-
-## 3ª) Codificou métodos
-
-### FirebaseConfig.java
-- **Método:** `init`.
-- **Função:** Este método realiza a inicialização da conexão com o Firebase, lendo um arquivo JSON de credenciais e configurando o Firebase com base nas informações lidas.
+### Firebaseconfig.java
+**Atributo:** `private AmqpAdmin amqpAdmin`  
+**Resposta:** A função deste atributo é administrar objetos do RabbitMQ.
 
 ### RabbitMQConfig.java
-- **Métodos:** `queue`, `topicExchange`, `binding` e `add`.
-- **Função:** Estes métodos auxiliam na configuração e organização da comunicação entre componentes usando o RabbitMQ.
+**Atributo:** `private static final String EXCHANGE_NAME`  
+**Resposta:** Este atributo é uma constante que representa o nome de troca do RabbitMQ.
 
 ### ComponentConsumer.java
-- **Método:** `createComponent`.
-- **Função:** Este método atua como um ouvinte do RabbitMQ e tem a função de criar componentes com base nas mensagens JSON recebidas, utilizando o Firebase para a criação.
+**Atributo:** `private ComponentService componentService`  
+**Resposta:** A função deste atributo é processar mensagens de componentes.
 
 ### SensorConsumer.java
-- **Método:** `registrySensor`.
-- **Função:** Este método atua como um ouvinte do RabbitMQ e registra informações de sensores com base nas mensagens JSON recebidas, utilizando o Firebase para o registro.
+**Atributo:** `private SensorService sensorService`  
+**Resposta:** A função deste atributo é processar mensagens de sensores.
+
+## 3ª) Codificou Métodos
+
+### FirebaseConfig.java
+**Método:** `init`  
+**Resposta:** A função do método `init` é realizar a conexão com a Firebase. Para isso, ele lê um arquivo JSON de credenciais e realiza a configuração da Firebase com base na leitura dos arquivos.
+
+### RabbitMQConfig.java
+**Métodos:** `queue`, `topicExchange`, `binding` e `add`  
+**Resposta:** A função destes métodos é auxiliar na organização da comunicação dos componentes através do RabbitMQ.
+
+### ComponentConsumer.java
+**Método:** `createComponent`  
+**Resposta:** Este método é um ouvinte RabbitMQ, sua função é criar componentes com base em mensagens JSON que ele recebe, utilizando o “Create” na criação de componentes no Firebase.
+
+### SensorConsumer.java
+**Método:** `registrySensor`  
+**Resposta:** Este método é um ouvinte RabbitMQ, sua função é registrar informações com base em mensagens JSON que ele recebe e, em seguida, utiliza o “registry” para registrar as informações dos sensores no Firebase.
 
 ### ComponentController.java
-- **Método:** `activate`.
-- **Função:** Este método lida com a ativação de componentes, recebendo e enviando dados em formato JSON via requisições HTTP.
+**Método:** `activate`  
+**Resposta:** A função deste método é ativar componentes e também receber e enviar dados em JSON para o RabbitMQ.
 
 ### SensorController.java
-- **Métodos:** `getRegistryById` e `getAllRegistryByIdentifier`.
-- **Função:** Estes métodos são responsáveis por obter informações de sensores com base em seus identificadores por meio de requisições HTTP.
+**Métodos:** `getRegistryById` e `getAllRegistryByIdentifier`  
+**Resposta:** A função desses métodos é obter informações de sensores com seus respectivos identificadores.
 
 ### ComponentService.java
-- **Método:** `create`.
-- **Função:** Este método cria componentes no Firestore do Firebase com base nos dados recebidos e verifica se o componente já existe antes de criar um novo.
-
-- **Método:** `activate`.
-- **Função:** Este método ativa componentes e envia mensagens ao RabbitMQ para a ativação.
-
-### SensorService.java
-- **Métodos:** `registry`, `getRegistryById` e `getAllRegistryByIdentifier`.
-- **Função:** Estes métodos são responsáveis por registrar e recuperar informações de sensores no Firestore do Firebase com base em seus identificadores.
-
-## 4ª) Atributos estáticos
-
-### RabbitMQConfig.java
-- **Atributo:** `private static final String EXCHANGE_NAME`.
-- **Função:** Este atributo é estático porque representa um valor constante usado em toda a classe para armazenar o nome da troca no RabbitMQ.
-
-## 5ª) Métodos estáticos
-
-### FirebaseConfig.java
-- **Método:** `init`.
-- **Função:** Este método é estático e é chamado durante a inicialização da classe `FirebaseConfig`. Ele não depende de instâncias específicas da classe e recebe um arquivo JSON como parâmetro para configurar o Firebase.
-
-### RabbitMQConfig.java
-- **Método privado:** `queue`.
-- **Função:** Este método é estático, não depende de instâncias da classe e é usado para criar filas no RabbitMQ.
-
-- **Método privado:** `topicExchange`.
-- **Função:** Este método é estático, não depende de instâncias da classe e é usado para criar uma troca do tipo tópico no RabbitMQ.
-
-- **Método privado:** `binding`.
-- **Função:** Este método é estático, não depende de instâncias da classe e é usado para
