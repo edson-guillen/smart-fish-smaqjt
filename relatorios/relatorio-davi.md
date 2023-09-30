@@ -1,6 +1,10 @@
 # Relatório de Atendimento dos Requisitos do Projeto Integrador - POO
 
-## Codificou classes? Quais classes? Para que servem?
+Este relatório apresenta o projeto de Programação Orientada a Objetos (POO) desenvolvido por Davi Pelloso, RA: 1976516. O projeto é composto por um conjunto de classes Java que desempenham funções específicas em um sistema. A seguir, são apresentados detalhes sobre as classes, atributos, métodos e práticas utilizadas no projeto.
+
+## Conceitos Básicos
+
+### Codificou classes? Quais classes? Para que servem?
 
 1. No arquivo `SmartfishApplication.java`:
    - Classe `SmartfishApplication`:
