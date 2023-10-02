@@ -133,11 +133,11 @@ Este relatório apresenta o projeto de Programação Orientada a Objetos (POO) d
 
 ### Codificou interfaces ou classes puramente virtuais? Quais classes/interfaces?
 
-Nenhum arquivo do projeto apresenta a codificação de interfaces ou classes puramente virtuais.
+Não foram codificadas interfaces ou classes puramente virtuais.
 
 ### Codificou classes abstratas ou classes virtuais? Quais classes?
 
-Nenhum arquivo do projeto apresenta a codificação de classes abstratas ou classes virtuais.
+Não foram codificadas classes abstratas ou classes virtuais.
 
 ### Instanciou objetos? Quais objetos?
 
@@ -167,19 +167,13 @@ Nenhum arquivo do projeto apresenta a codificação de classes abstratas ou clas
 
 ### Usou polimorfismo? Com quais classes?
 
-Não foram identificados exemplos de uso de polimorfismo no projeto.
+Não foi utilizado polimorfismo no projeto.
 
 ### Usou objetos imutáveis? Quais objetos?
 
 - No arquivo `ComponentDto.java`, a classe `ComponentDto` possui atributos imutáveis, como `identifier` e `active`, uma vez que são declarados como `final`.
 
 - No arquivo `SensorDto.java`, a classe `SensorDto` possui atributos imutáveis, como `identifier`, `temp`, `ph`, `water_level`, `turbidity` e `created_at`, uma vez que são declarados como `final`.
-
-## Diagramas UML
-
-Nenhum diagrama UML foi fornecido no projeto.
-
-## Boas Práticas
 
 ### Ocultou informações usando atributos e/ou métodos protected/private? Em quais classes? Quais atributos e métodos? Por que foi importante ocultar esses dados?
 
