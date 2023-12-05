@@ -4,62 +4,62 @@ Este relatório apresenta o projeto de Programação Orientada a Objetos (POO) d
 
 ## Conceitos Básicos
 
-### Codificou classes? Quais classes? Para que servem?
+### Classes
 
-1. No arquivo `SmartfishApplication.java`:
+   **No arquivo `SmartfishApplication.java`**:
    - Classe `SmartfishApplication`:
 
      - **Descrição:** A classe Application é a classe principal do aplicativo Spring Boot. Ela é responsável por inicializar o aplicativo e carregar as configurações.
 
-2. No arquivo `FirebaseConfig.java`:
+   **No arquivo `FirebaseConfig.java`**:
    - Classe `FirebaseConfig`:
      - **Descrição:** A classe FirebaseConfig é responsável por configurar a conexão com o Firebase. Ela usa a biblioteca de terceiros Google Firebase para fazer isso.
 
-3. No arquivo `RabbitMQConfig.java`:
+   **No arquivo `RabbitMQConfig.java`**:
    - Classe `RabbitMQConfig`:
      - **Descrição:** A classe RabbitMQConfig é responsável por configurar a comunicação com o RabbitMQ. Ela usa a biblioteca de terceiros Spring AMQP para fazer isso.
 
-4. No arquivo `RabbitMQConstant.java`:
+   **No arquivo `RabbitMQConstant.java`**:
    - Interface `RabbitMQConstant`:
      - **Descrição:** A interface RabbitMQConstant define constantes relacionadas ao RabbitMQ, como nomes de filas e trocas. Isso torna mais fácil acessar esses valores em todo o aplicativo.
 
-5. No arquivo `ComponentConsumer.java`:
+   **No arquivo `ComponentConsumer.java`**:
    - Classe `ComponentConsumer`:
      - **Descrição:** A classe ComponentConsumer é um consumidor RabbitMQ que processa mensagens relacionadas a componentes. Ela recebe mensagens JSON do RabbitMQ e usa os dados para criar ou ativar componentes no Firebase.
 
-6. No arquivo `SensorConsumer.java`:
+   **No arquivo `SensorConsumer.java`**:
    - Classe `SensorConsumer`:
      - **Descrição:** A classe SensorConsumer é um consumidor RabbitMQ que processa mensagens relacionadas a sensores. Ela recebe mensagens JSON do RabbitMQ e usa os dados para registrar informações de sensores no Firebase.
 
-7. No arquivo `ComponentController.java`:
+   **No arquivo `ComponentController.java`**:
    - Classe `ComponentController`:
      - **Descrição:** A classe ComponentController é um controlador responsável por lidar com solicitações relacionadas a componentes. Ela fornece endpoints REST para criar, ativar e obter componentes.
 
-8. No arquivo `SensorController.java`:
+   **No arquivo `SensorController.java`**:
    - Classe `SensorController`:
      - **Descrição:** A classe SensorController é um controlador responsável por lidar com solicitações relacionadas a sensores. Ela fornece endpoints REST para registrar, obter e atualizar informações de sensores.
 
-9. No arquivo `Response.java`:
+   **No arquivo `Response.java`**:
    - Classe `Response`:
      - **Descrição:** A classe Response representa uma resposta padrão da API. Ela contém dados e possíveis erros.
 
-10. No arquivo `ComponentDto.java`:
+     **No arquivo `ComponentDto.java`**:
     - Classe `ComponentDto`:
       - **Descrição:** A classe ComponentDto é um DTO que representa objetos de dados relacionados a componentes. Ela contém atributos como identifier, active, angle, e time.
 
-11. No arquivo `SensorDto.java`:
+      **No arquivo `SensorDto.java`**:
     - Classe `SensorDto`:
       - **Descrição:** A classe SensorDto é um DTO que representa objetos de dados relacionados a sensores. Ela contém atributos como identifier, temp, ph, water_level, turbidity e created_at.
 
-12. No arquivo `ComponentService.java`:
+      **No arquivo `ComponentService.java`**:
     - Classe `ComponentService`:
       - **Descrição:** A classe ComponentService é responsável por lidar com a lógica de negócios relacionada a componentes. Ela fornece métodos para criar, ativar e obter componentes.
 
-13. No arquivo `SensorService.java`:
+      **No arquivo `SensorService.java`**:
     - Classe `SensorService`:
       - **Descrição:** A classe SensorService é responsável por lidar com a lógica de negócios relacionada a sensores. Ela fornece métodos para registrar, obter e atualizar informações de sensores.
 
-## Codificou atributos? Em quais classes? Quais atributos? Por que esses nomes e tipos?
+### Atributos
 
 **No arquivo `FirebaseConfig.java`**:
 
@@ -81,7 +81,7 @@ Este relatório apresenta o projeto de Programação Orientada a Objetos (POO) d
 - Atributo `private SensorService sensorService`:
   - **Descrição:** Este atributo injeta uma instância de `SensorService` para processar mensagens relacionadas a sensores.
 
-## Codificou métodos? Em quais classes? Quais métodos? Por que esses nomes e parâmetros?
+### Métodos
 
 **No arquivo `FirebaseConfig.java`**:
 
@@ -107,3 +107,106 @@ Este relatório apresenta o projeto de Programação Orientada a Objetos (POO) d
 
 - Método `activate`:
   - **Descrição:** O método activate da classe ComponentController é usado para ativar componentes. Ele recebe dados no formato JSON
+ 
+**No arquivo `SensorComponent.java`**:
+- Métodos `getRegistryById` e `getAllRegistryByIdentifier`:
+  - **Descrição:** Obtém informações de sensores com base em identificadores.
+
+**No arquivo `ComponentService.java`**:
+- Métodos `create` e `activate`:
+   - **Descrição**: Criam e ativam componentes, interagindo com o Firebase.
+   
+**No arquivo `SensorService.java`**:
+ - Métodos `registry`, `getRegistryById` e `getAllRegistryByIdentifier`:
+   - **Descrição**: Registram e recuperam informações de sensores no Firebase. 
+
+### Atributos Estáticos e Métodos Estáticos
+
+**No arquivo `RabbitMQConfig.java`:**
+- Atributo Estático: `private static final String EXCHANGE_NAME`
+  - **Descrição**: Estático para representar uma constante usada em toda a classe. Armazena o nome da troca do RabbitMQ.
+
+**No arquivo `FirebaseConfig.java`:**
+- Método Estático: `init`
+  - **Descrição**: Estático, chamado na inicialização da classe para configurar o Firebase a partir de um arquivo JSON.
+
+**No arquivo `RabbitMQConfig.java`:**
+- Métodos privados: `queue`, `topicExchange`, `binding` e `add`
+  - **Descrição**: Estáticos, usados internamente para configurar o RabbitMQ.
+
+### Métodos Construtores
+
+**No arquivo `RabbitMQConfig.java`:**
+- Construtor: `public RabbitMQConfig(AmqpAdmin amqpAdmin)`
+  - **Descrição**: Usado para injetar uma instância de AmqpAdmin.
+
+### Atributos e Métodos Protegidos e/ou Privados
+
+**No arquivo `FirebaseConfig.java`:**
+- Atributo Privado: `private AmqpAdmin amqpAdmin`
+  - **Descrição**: Privado para encapsular a implementação da classe e evitar acesso direto.
+
+**No arquivo `RabbitMQConfig.java`:**
+- Métodos privados: `queue`, `topicExchange`, `binding` e `add`
+  - **Descrição**: Privados para serem usados internamente na classe RabbitMQConfig.
+   
+### Interfaces ou Classes Puramente Virtuais
+
+- Não foram codificadas interfaces ou classes puramente virtuais.
+
+### Classes Abstratas ou Classes Virtuais
+
+- Não foram codificadas classes abstratas ou classes virtuais.
+
+### Instanciação de Objetos
+
+- **No arquivo `FirebaseConfig.java`**, são instanciados objetos `FirebaseOptions` e `FirebaseApp` durante a inicialização para conectar o Firebase.
+
+### Bibliotecas de Terceiros
+
+- **No arquivo `FirebaseConfig.java`**, a biblioteca de terceiros Google Firebase é usada para configurar a conexão com o Firebase.
+- **No arquivo `RabbitMQConfig.java`**, a biblioteca de terceiros Spring AMQP é usada para configurar a comunicação com o RabbitMQ.
+
+### Enums
+
+**No arquivo `RabbitMQConstant.java`:**
+- Definição de constantes em forma de enumeração para representar nomes de filas e trocas no RabbitMQ.
+
+### Classes de Dados
+
+**No arquivo `ComponentDto.java`:**
+- Classe de dados que representa objetos de dados relacionados a componentes.
+
+**No arquivo `SensorDto.java`:**
+- Classe de dados que representa objetos de dados relacionados a sensores.
+
+### Classes de Comportamento
+
+**No arquivo `ComponentService.java`:**
+- Classe de comportamento que lida com a lógica de negócios relacionada a componentes.
+
+**No arquivo `SensorService.java`:**
+- Classe de comportamento que lida com a lógica de negócios relacionada a sensores.
+
+## Práticas de Programação
+
+### Polimorfismo
+
+- Não foi utilizado polimorfismo no projeto.
+
+### Objetos Imutáveis
+
+- No arquivo ComponentDto.java, a classe ComponentDto possui atributos imutáveis, como `identifier` e `active`, uma vez que são declarados como `final`.
+- No arquivo SensorDto.java, a classe SensorDto possui atributos imutáveis, como `identifier`, `temp`, `ph`, `water_level`, `turbidity` e `created_at`, uma vez que são declarados como `final`.
+
+### Ocultação de Informações
+
+**No arquivo `FirebaseConfig.java`:**
+- Atributo privado `AmqpAdmin amqpAdmin`: 
+  - **Descrição**: Atributo privado para encapsular a implementação interna da classe e evitar acesso direto.
+
+### Classes Imutáveis
+
+- As classes `ComponentDto` e `SensorDto` são classes imutáveis para garantir que os objetos de dados relacionados a componentes e sensores não sejam modificados após a criação, mantendo a integridade dos dados.
+
+
